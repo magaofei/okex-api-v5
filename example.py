@@ -1,3 +1,5 @@
+import os 
+
 import okex.Account_api as Account
 import okex.Funding_api as Funding
 import okex.Market_api as Market
@@ -7,11 +9,15 @@ import okex.subAccount_api as SubAccount
 import okex.status_api as Status
 import json
 
+from dotenv import load_dotenv
 
 if __name__ == '__main__':
-    api_key = ""
-    secret_key = ""
-    passphrase = ""
+
+    load_dotenv()
+
+    api_key = os.getenv('api_key')
+    secret_key = os.getenv('secret_key')
+    passphrase = os.getenv('passphrase')
     # flag是实盘与模拟盘的切换参数 flag is the key parameter which can help you to change between demo and real trading.
     # flag = '1'  # 模拟盘 demo trading
     flag = '0'  # 实盘 real trading
